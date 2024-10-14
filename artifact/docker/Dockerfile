@@ -85,7 +85,7 @@ RUN apt-get update && apt-get install -y linux-tools-$(uname -r) || \
     (cd /tmp && \
     git clone --recurse-submodules https://github.com/libbpf/bpftool.git && \
     cd bpftool/src && \
-    make install && \
+    make install LLVM_STRIP=llvm-strip-16 && \
     rm -rf /tmp/bpftool)
 
 # Clone the Honey Potion repository
